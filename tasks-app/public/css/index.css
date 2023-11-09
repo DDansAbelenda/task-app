@@ -1,0 +1,100 @@
+body {
+    font-family: 'Mooli', Arial, sans-serif;
+}
+
+.material-symbols-outlined {
+    font-size: 2rem;
+}
+
+.container {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.success-message {
+    background-color: #d1f5d1;
+    color: #00a800;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.form-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-container input[type="text"] {
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    outline: none;
+}
+
+.form-container button {
+    color: #0da33a;
+    font-family: 'Mooli', Arial, sans-serif;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.task-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.task-list li:last-child {
+    border-bottom: none;
+}
+
+.task-label {
+    margin-left: 10px;
+}
+
+.delete-form {
+    margin-left: auto;
+}
+
+.delete-form button {
+    font-family: 'Mooli', Arial, sans-serif;
+    color: #f00;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.detail-form button {
+    font-family: 'Mooli', Arial, sans-serif;
+    color: rgb(4, 0, 255);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.buttons-container {
+    display: flex;
+}
