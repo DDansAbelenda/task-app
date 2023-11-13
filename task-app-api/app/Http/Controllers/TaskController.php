@@ -25,10 +25,8 @@ class TaskController extends Controller
             'name' => 'required|string|max:255',
             'completed' => 'boolean',
         ]);
-
         $task = Task::create([
             'name' => $request->name,
-            'completed' => $request->completed,
         ]);
 
         return $task;
@@ -51,17 +49,19 @@ class TaskController extends Controller
             'name' => 'required|string|max:255',
             'completed' => 'boolean',
         ]);
-        
+
         $task->update([
             'name' => $request->name,
             'completed' => $request->completed,
         ]);
-        
+
         //Preparar mensaje
         $message = "Actualizado con éxito";
-        
-        return response()->json(["message"=> $message , 
-                                 "task" => $task ]);
+
+        return response()->json([
+            "message" => $message,
+            "task" => $task
+        ]);
     }
 
     /**
@@ -70,7 +70,9 @@ class TaskController extends Controller
     public function destroy(Task $task)
     {
         $task->delete();
-        return response()->json(["message"=> "Eliminada con éxito",
-                                 "task" => $task]);
+        return response()->json([
+            "message" => "Eliminada con éxito",
+            "task" => $task
+        ]);
     }
 }
