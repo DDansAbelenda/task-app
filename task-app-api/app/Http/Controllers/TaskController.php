@@ -12,7 +12,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
+        $tasks = Task::latest()->get();
         return response()->json($tasks);
     }
 
@@ -28,8 +28,12 @@ class TaskController extends Controller
         $task = Task::create([
             'name' => $request->name,
         ]);
+        $message = "La tarea \"" . $task->name . "\" ha sido creada con éxito";
 
-        return $task;
+        return response()->json([
+            "message" => $message,
+            "task" => $task
+        ]);
     }
 
     /**
@@ -56,7 +60,9 @@ class TaskController extends Controller
         ]);
 
         //Preparar mensaje
-        $message = "Actualizado con éxito";
+
+        $message = $request->completed ? "La tarea \"" . $task->name . "\" ha sido completada con éxito"
+            : "La tarea \"" . $task->name . "\" no ha sido completada con éxito";
 
         return response()->json([
             "message" => $message,
@@ -70,8 +76,11 @@ class TaskController extends Controller
     public function destroy(Task $task)
     {
         $task->delete();
+
+        
+        $message = "La tarea \"" . $task->name . "\" ha sido eliminada con éxito";
         return response()->json([
-            "message" => "Eliminada con éxito",
+            "message" => $message,
             "task" => $task
         ]);
     }
